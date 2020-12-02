@@ -10,15 +10,15 @@
 from classes import Node, LinkedList, iterable_to_LinkedList
 
 def partition(x,ll):
-    prev = None
-    current = ll.get_head()
-    nxt = current.get_nxt()
+    prev = ll.get_head()
+    current = prev.get_nxt()
+    if current is None:
+        return None
+    else:
+        nxt = current.get_nxt()
     while current is not None:
         if (current.get_data() < x):
-            if prev is not None:
-                prev.set_nxt(current.get_nxt())
-            else:
-                prev = current
+            prev.set_nxt(nxt)
             current.set_nxt(ll.get_head())
             ll.set_head(current)
             current = nxt
@@ -30,9 +30,9 @@ def partition(x,ll):
             if nxt is not None:
                 nxt = nxt.get_nxt()
 
-ll = iterable_to_LinkedList([9,8,7,6,5,4,3,2,1])
-
-partition(5,ll)
+#ll = iterable_to_LinkedList([9,16,17,16,15,4,3,2,1])
+ll = iterable_to_LinkedList([9,8,7,6,54,3,2,1])
+partition(100,ll)
 
 for node in ll:
     print(node.get_data()) #123498765
