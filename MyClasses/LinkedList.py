@@ -22,10 +22,19 @@ class LinkedList(Node):
 
     def __next__(self):
         if self.current is not None:
+            tmp = self.current
             self.current = self.current.next
         else:
             self.current = self.head
             raise StopIteration
 
-        return self
+        return tmp
+    
+    def __repr__(self):
+        out = ''
+        for node in self:
+            if node is not None:
+                out = out + str(node.value) + ' -> '
+        
+        return out[:-4]
             

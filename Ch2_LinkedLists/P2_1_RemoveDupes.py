@@ -15,13 +15,11 @@ def remove_dupes(linked_list):
     values = {}
     prev = None
     current = ll.head
-    while current is not None:
-        if (current.value in values) and (prev is not None):
-            prev.next = current.next
-            current = current.next
+    for node in ll:
+        if (node.value in values) and (prev is not None):
+            prev.next = node.next
         else:
-            values[current.value]=''
-            prev = current
-            current = current.next
-    
+            values[node.value]=''
+            prev = node
+
     return ll
