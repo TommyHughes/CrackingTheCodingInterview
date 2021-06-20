@@ -12,11 +12,20 @@ class Node(object):
         self.next = None
     
 class LinkedList(Node):
-    def __init__(self, value):
-        super().__init__(value)
+    def __init__(self, node):
+        self.head = node
+        self.current = self.head
 
     def __iter__(self):
+        self.current = self.head
         return self
 
     def __next__(self):
-        pass
+        if self.current is not None:
+            self.current = self.current.next
+        else:
+            self.current = self.head
+            raise StopIteration
+
+        return self
+            

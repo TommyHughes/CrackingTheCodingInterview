@@ -14,7 +14,7 @@ def remove_dupes(linked_list):
     ll = linked_list
     values = {}
     prev = None
-    current = ll
+    current = ll.head
     while current is not None:
         if (current.value in values) and (prev is not None):
             prev.next = current.next
