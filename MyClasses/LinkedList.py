@@ -13,4 +13,10 @@ class Node(object):
     
 class LinkedList(Node):
     def __init__(self, value):
-        self.head = Node(value)
+        super().__init__(value)
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        pass
