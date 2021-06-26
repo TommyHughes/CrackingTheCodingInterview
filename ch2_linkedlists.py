@@ -6,6 +6,7 @@ from Ch2_LinkedLists.P2_4_Partition import partition
 from Ch2_LinkedLists.P2_5_SumLists import reverse_linked_list, sum_lists
 from Ch2_LinkedLists.P2_6_Palindrome import is_palindrome
 from Ch2_LinkedLists.P2_7_Intersection import linked_list_intersection
+from Ch2_LinkedLists.P2_8_LoopDetection import linked_list_loop_detection
 
 def P2_1():
     # 2.1 Remove Dupes
@@ -131,6 +132,23 @@ def P2_7():
     print("Linked List B: ",ll_b)
     print("Intersection: ",linked_list_intersection(ll_a,ll_b).value)
 
+def P2_8():
+    # 2.8 Loop Detection
+    ll = LinkedList(Node(1))
+    second = Node(2)
+    ll.head.next = second
+    third = Node(3)
+    second.next = third
+    fourth = Node(4)
+    third.next = fourth
+    fifth = second
+    fourth.next = fifth
+
+    out = linked_list_loop_detection(ll)
+    if out is not None:
+        out = out.value
+    print("First Node In Loop: ",out)
+
 problem_user_wants = input("Which problem output would you like to see (ex P2_1) ")
 
 if problem_user_wants == 'P2_1':
@@ -147,5 +165,7 @@ elif problem_user_wants == 'P2_6':
     P2_6()
 elif problem_user_wants == 'P2_7':
     P2_7()
+elif problem_user_wants == 'P2_8':
+    P2_8()
 else:
     print("sorry that problem doesn't exist.")
