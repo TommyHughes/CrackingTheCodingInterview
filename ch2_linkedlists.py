@@ -3,6 +3,7 @@ from Ch2_LinkedLists.P2_1_RemoveDupes import remove_dupes
 from Ch2_LinkedLists.P2_2_ReturnKthToLast import kth_to_last
 from Ch2_LinkedLists.P2_3_DeleteMiddleNode import delete_middle_node
 from Ch2_LinkedLists.P2_4_Partition import partition
+from Ch2_LinkedLists.P2_5_SumLists import reverse_linked_list
 
 def P2_1():
     # 2.1 Remove Dupes
@@ -74,6 +75,21 @@ def P2_4():
     partition(11,ll)
     print(ll)
 
+def P2_5():
+    #2.5 SumLists
+    ll = LinkedList(Node(10))
+    second = Node(55)
+    ll.head.next = second
+    third = Node(10)
+    second.next = third
+    fourth = Node(11)
+    third.next = fourth
+    fifth = Node(1)
+    fourth.next = fifth
+    print("Linked List: ",ll)
+    reverse_linked_list(ll)
+    print("Reversed Linked List: ",ll)
+
 
 problem_user_wants = input("Which problem output would you like to see (ex P2_1) ")
 
@@ -85,5 +101,7 @@ elif problem_user_wants == 'P2_3':
     P2_3()
 elif problem_user_wants == 'P2_4':
     P2_4()
+elif problem_user_wants == 'P2_5':
+    P2_5()
 else:
     print("sorry that problem doesn't exist.")

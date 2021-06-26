@@ -57,7 +57,13 @@
 from MyClasses.LinkedList import Node, LinkedList
 def reverse_linked_list(ll):
     # write a function that reverses a linked list
-    pass
+    prev = None
+    for node in ll:
+        if node.next is None:
+            ll.head = node
+        node.next = prev
+        prev = node
+    return ll
 
 def sum_lists(ll_a,ll_b):
     # write a function that adds up the values in two linked lists
