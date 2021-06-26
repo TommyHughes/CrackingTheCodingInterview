@@ -1,5 +1,5 @@
 #####################################################################
-# DATE      11/14/2020
+# DATE      06/19/2021
 # AUTHOR    Thomas Hughes
 # INTERVIEW QUESTION
 #   2.1 Remove Dupes
@@ -8,17 +8,18 @@
 #   How would you solve this problem if a temporary buffer is not
 #   allowed?
 #####################################################################
-from classes import Node, LinkedList, iterable_to_LinkedList
+from MyClasses.LinkedList import Node, LinkedList
 
-def remove_dups(ll):
-    uniques = set({})
+def remove_dupes(linked_list):
+    ll = linked_list
+    values = {}
+    prev = None
+    current = ll.head
     for node in ll:
-        uniques.add(node.get_data()) # sets don't allow repeat elements
-    return iterable_to_LinkedList(uniques)
+        if (node.value in values) and (prev is not None):
+            prev.next = node.next
+        else:
+            values[node.value]=''
+            prev = node
 
-
-ll = remove_dups(iterable_to_LinkedList([1,1,1,1,1,1,1]))
-
-for node in ll:
-    print(node.get_data())
-
+    return ll
