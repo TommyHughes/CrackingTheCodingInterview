@@ -3,7 +3,7 @@ from Ch2_LinkedLists.P2_1_RemoveDupes import remove_dupes
 from Ch2_LinkedLists.P2_2_ReturnKthToLast import kth_to_last
 from Ch2_LinkedLists.P2_3_DeleteMiddleNode import delete_middle_node
 from Ch2_LinkedLists.P2_4_Partition import partition
-from Ch2_LinkedLists.P2_5_SumLists import reverse_linked_list
+from Ch2_LinkedLists.P2_5_SumLists import reverse_linked_list, sum_lists
 
 def P2_1():
     # 2.1 Remove Dupes
@@ -77,18 +77,30 @@ def P2_4():
 
 def P2_5():
     #2.5 SumLists
-    ll = LinkedList(Node(10))
-    second = Node(55)
-    ll.head.next = second
-    third = Node(10)
-    second.next = third
-    fourth = Node(11)
-    third.next = fourth
-    fifth = Node(1)
-    fourth.next = fifth
-    print("Linked List: ",ll)
-    reverse_linked_list(ll)
-    print("Reversed Linked List: ",ll)
+    ll_a = LinkedList(Node(2))
+    a_second = Node(1)
+    ll_a.head.next = a_second
+    a_third = Node(5)
+    a_second.next = a_third
+
+    ll_b = LinkedList(Node(1))
+    b_second = Node(2)
+    ll_b.head.next = b_second
+
+    print("Linked List A: ",ll_a)
+    reverse_linked_list(ll_a)
+    print("Reversed Linked List A: ",ll_a)
+
+    print("Linked List B: ",ll_b)
+    reverse_linked_list(ll_b)
+    print("Reversed Linked List B: ",ll_b)
+
+    ll_sum = sum_lists(ll_a,ll_b)
+    print("Sum of Lists: ",ll_sum)
+    reverse_linked_list(ll_sum)
+    print("Reversed Sum of Lists: ",ll_sum)
+
+
 
 
 problem_user_wants = input("Which problem output would you like to see (ex P2_1) ")

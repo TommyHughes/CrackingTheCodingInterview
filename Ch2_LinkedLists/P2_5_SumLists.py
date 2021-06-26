@@ -67,4 +67,37 @@ def reverse_linked_list(ll):
 
 def sum_lists(ll_a,ll_b):
     # write a function that adds up the values in two linked lists
-    pass
+    carry = 0
+    ll_a.current = ll_a.head
+    ll_b.current = ll_b.head
+    ll_sum = LinkedList(Node(None))
+    while not (ll_a.current is None and ll_b.current is None):
+        if ll_a.current is not None:
+            term_a = ll_a.current.value
+            ll_a.current = ll_a.current.next
+        else:
+            term_a = 0
+        
+        if ll_b.current is not None:
+            term_b = ll_b.current.value
+            ll_b.current = ll_b.current.next
+        else:
+            term_b = 0
+        
+        digit = (term_a + term_b) % 10
+        ll_sum.current.value = digit + carry
+
+        if 10 <= (term_a + term_b):
+            carry = 1
+        else:
+            carry = 0
+        
+        if (carry is 1) or (not (ll_a.current is None and ll_b.current is None)):
+            ll_sum.current.next = Node(None)
+            ll_sum.current = ll_sum.current.next
+        
+    
+    ll_a.current = ll_a.head
+    ll_b.current = ll_a.head
+    ll_sum.current = ll_sum.head
+    return ll_sum
