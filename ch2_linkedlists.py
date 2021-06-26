@@ -5,6 +5,7 @@ from Ch2_LinkedLists.P2_3_DeleteMiddleNode import delete_middle_node
 from Ch2_LinkedLists.P2_4_Partition import partition
 from Ch2_LinkedLists.P2_5_SumLists import reverse_linked_list, sum_lists
 from Ch2_LinkedLists.P2_6_Palindrome import is_palindrome
+from Ch2_LinkedLists.P2_7_Intersection import linked_list_intersection
 
 def P2_1():
     # 2.1 Remove Dupes
@@ -112,6 +113,23 @@ def P2_6():
     print(ll)
     print(is_palindrome(ll))
 
+def P2_7():
+    # 2.7 Intersection
+    ll_a = LinkedList(Node(1))
+    a_second = Node(2)
+    ll_a.head.next = a_second
+    a_third = Node(3)
+    a_second.next = a_third
+
+    ll_b = LinkedList(Node(3))
+    b_second = a_second
+    ll_b.head.next = b_second
+    b_third = Node(1)
+    b_second = b_third
+
+    print("Linked List A: ",ll_a)
+    print("Linked List B: ",ll_b)
+    print("Intersection: ",linked_list_intersection(ll_a,ll_b).value)
 
 problem_user_wants = input("Which problem output would you like to see (ex P2_1) ")
 
@@ -127,5 +145,7 @@ elif problem_user_wants == 'P2_5':
     P2_5()
 elif problem_user_wants == 'P2_6':
     P2_6()
+elif problem_user_wants == 'P2_7':
+    P2_7()
 else:
     print("sorry that problem doesn't exist.")
