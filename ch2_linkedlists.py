@@ -4,6 +4,7 @@ from Ch2_LinkedLists.P2_2_ReturnKthToLast import kth_to_last
 from Ch2_LinkedLists.P2_3_DeleteMiddleNode import delete_middle_node
 from Ch2_LinkedLists.P2_4_Partition import partition
 from Ch2_LinkedLists.P2_5_SumLists import reverse_linked_list, sum_lists
+from Ch2_LinkedLists.P2_6_Palindrome import is_palindrome
 
 def P2_1():
     # 2.1 Remove Dupes
@@ -100,7 +101,16 @@ def P2_5():
     reverse_linked_list(ll_sum)
     print("Reversed Sum of Lists: ",ll_sum)
 
+def P2_6():
+    # 2.6 Palindrome
+    ll = LinkedList(Node('a'))
+    second = Node('b')
+    ll.head.next = second
+    third = Node('c')
+    second.next = third
 
+    print(ll)
+    print(is_palindrome(ll))
 
 
 problem_user_wants = input("Which problem output would you like to see (ex P2_1) ")
@@ -115,5 +125,7 @@ elif problem_user_wants == 'P2_4':
     P2_4()
 elif problem_user_wants == 'P2_5':
     P2_5()
+elif problem_user_wants == 'P2_6':
+    P2_6()
 else:
     print("sorry that problem doesn't exist.")
